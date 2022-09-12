@@ -1,0 +1,13 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Courier Prime', monospace;
+  font-family: 'Mukta', sans-serif;
+  font-family: 'Slabo 27px', serif;
+  font-family: 'Zilla Slab', serif; 
+  --background-color-app: #195258;
+  --background-color-hover-app: #071618;
+  --color-app: #cfd4d8;
+
+}
