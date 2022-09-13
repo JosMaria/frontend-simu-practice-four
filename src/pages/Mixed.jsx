@@ -35,6 +35,19 @@ export const Mixed = () => {
 const FormMixed = ({ setPayload }) => {
   const [isSent, setIsSent] = useState(false);
   
+  const validator = values => {
+    let errors = {};
+    errors.seed = !values.seed ? 'Ingrese la semilla ' : parseInt(values.seed) <= 0 && 'Semilla debe ser mayor a 0';
+    errors.multiplicative = !values.multiplicative ? 'Ingrese la ctte multiplicativa' : parseInt(values.multiplicative) <= 0 && 'Ingrese la ctte multiplicativa';
+    errors.additive = !values.additive ? 'Ingrese la ctte aditiva' : parseInt(values.additive) <= 0 && 'Ctte aditiva debe ser mayor a 0';
+    errors.module = !values.module ? 'Ingrese el modulo' : 
+      parseInt(values.module) <= 0 ? 'Modulo debe ser mayor a 0' : 
+        (parseInt(values.module) <= parseInt(values.seed) || 
+        parseInt(values.module) <= parseInt(values.additive) || 
+        parseInt(values.module) <= parseInt(values.multiplicative)) && 'Modulo debe ser mayor a Xo, c, a';
+    return errors
+  }
+
   return (
     <Formik
       initialValues={{ seed: '', multiplicative: '', additive: '', module: '' }}
@@ -45,33 +58,7 @@ const FormMixed = ({ setPayload }) => {
         setTimeout(() => setIsSent(false), 2000);
       }}
 
-      validate={values => {
-        let validation = {};
-        validation.seed = !values.seed && 'Ingrese la semilla';
-        validation.multiplicative = !values.multiplicative && 'Ingrese la ctte multiplicativa';
-        validation.additive = !values.additive && 'Ingrese la ctte aditiva';
-        validation.module = !values.module && 'Ingrese el modulo';
-
-        if (parseInt(values.seed) <= 0) {
-          validation.seed = 'Semilla debe ser mayor a 0';
-        }
-        if (parseInt(values.multiplicative) <= 0) {
-          validation.multiplicative = 'Ctte Multiplicativa debe ser mayor a 0';
-        }
-        if (parseInt(values.additive) <= 0) {
-          validation.additive = 'Ctte aditiva debe ser mayor a 0';
-        }
-        if(parseInt(values.module) <= 0) {
-          validation.module = 'Modulo debe ser mayor a 0';
-        }
-        /*
-        if (parseInt(values.module) <= parseInt(values.seed) || 
-            parseInt(values.module) <= parseInt(values.additive) || 
-            parseInt(values.module) <= parseInt(values.multiplicative)) {
-          validation.module = 'Modulo debe ser mayor a Xo, c, a';
-        }*/
-        return validation;
-      }}
+      validate={values => validator(values)}
     >
     {({ errors }) => 
       <Form className='form'>
