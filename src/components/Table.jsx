@@ -15,9 +15,7 @@ const TableHeader = ({ titleHeaders }) => {
   return (
     <thead>
       <tr>
-      {
-        titleHeaders.map((titleHeader, index) => <th key={index}>{titleHeader}</th>)
-      }
+      { titleHeaders.map((titleHeader, index) => <th key={index}>{titleHeader}</th>)}
       </tr>
     </thead>
   )
@@ -25,7 +23,6 @@ const TableHeader = ({ titleHeaders }) => {
 
 const Row = ({ row = {} }) => {
   const values = [];
-  
   for (const [value] of Object.entries(row)) {
     values.push(value)
   }

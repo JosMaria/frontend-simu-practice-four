@@ -8,7 +8,7 @@ export const LabelInputField = ({ textLabel, messageError, name }) => {
     <div className='label-input-field-container'>
       <div className='label-input'>
         <label className='label'>{textLabel}</label>
-        <Field className='field' name={name} placeholder={name} />
+        <Field className='field' name={name} />
       </div>
       <ErrorMessage name={name} component={() => labelError}/>
     </div>  

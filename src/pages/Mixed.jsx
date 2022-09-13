@@ -17,8 +17,6 @@ export const Mixed = () => {
   useEffect(() => {
     dataOfMixed(payload.seed, payload.multiplicative, payload.additive, payload.module)
       .then(data => {
-        console.log(data.response);
-        console.log(data.messages);
         setRows(data.response);
         setMessages(data.messages);
       });
@@ -41,10 +39,8 @@ const FormMixed = ({ setPayload }) => {
     <Formik
       initialValues={{ seed: '', multiplicative: '', additive: '', module: '' }}
 
-      onSubmit={(values, { resetForm }) => {
-        console.log(values);
+      onSubmit={values => {
         setPayload(values);
-        resetForm();
         setIsSent(true);
         setTimeout(() => setIsSent(false), 2000);
       }}
