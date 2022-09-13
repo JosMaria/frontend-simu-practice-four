@@ -14,7 +14,7 @@ const Data = () => {
     </>
 
   return (    
-      <MenuItem height={'6.8em'} children={childrenFirstMenu} />
+      <MenuItem title='NO CONGRUENCIALES' height={'6.8em'} children={childrenFirstMenu} />
   )
 }
 
