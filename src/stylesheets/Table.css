@@ -2,7 +2,7 @@
   border-collapse: collapse;
   margin: 10px;
   font-size: 1em;
-  min-width: 700px;
+  width: fit-content;
   overflow: hidden;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
 }
@@ -16,7 +16,7 @@
 
 .table-container th,
 .table-container td {
-  padding: 12px 15px;
+  padding: 15px 30px;
   text-align: center;
   user-select: none;
 }

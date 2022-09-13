@@ -3,19 +3,19 @@ import { useEffect, useState } from 'react';
 import { LabelInputField } from '../components/LabelInputField';
 import { SectionMessages } from '../components/SectionMessages';
 import { Table } from '../components/Table';
-import { dataOfMultiplicative } from '../services/axios';
+import { dataOfMultiplicativeBinary } from '../services/axios';
 
-import '../stylesheets/pages/Multiplicative.css';
+import '../stylesheets/pages/MultiplicativeBinary.css';
 
-const titleHeaders = ['n', '1', '2', '3', '4'];
+const titleHeaders = ['n', 'Jose Maria'];
 
-export const Multiplicative = () => {
+export const MultiplicativeBinary = () => {
   const [rows, setRows] = useState([]);
   const [messages, setMessages] = useState([]);
   const [payload, setPayload] = useState({ seed: 0, multiplicative: 0, module: 0 });
-
+  
   useEffect(() => {
-    dataOfMultiplicative(payload.seed, payload.multiplicative, payload.module)
+    dataOfMultiplicativeBinary(payload.seed, payload.multiplicative, payload.module)
       .then(data => {
         setRows(data.response);
         setMessages(data.messages);
@@ -23,20 +23,20 @@ export const Multiplicative = () => {
   }, [payload])
 
   return (
-    <div className='multiplicative-product-container'>
-      <h1>Congruencial Multiplicativo Decimal</h1>
-      <FormMultiplicative setPayload={setPayload} />
+    <div className='multiplicative-binary-product-container'>
+      <h1>Congruencial Multiplicativo Binario</h1>
+      <FormMultiplicativeBinary setPayload={setPayload} />
       <Table titleHeaders={titleHeaders} rows={rows} />
       <SectionMessages messages={messages} />
     </div>
   )
 }
 
-const FormMultiplicative = ({ setPayload }) => {
+const FormMultiplicativeBinary = ({ setPayload }) => {
   const [isSent, setIsSent] = useState(false);
-  
-  const validator = values => {};
 
+  const validator = values => {};
+  
   return (
     <Formik
       initialValues={{ seed: '', multiplicative: '', module: '' }}
