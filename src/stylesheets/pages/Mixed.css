@@ -1,0 +1,59 @@
+.mixed-product-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+	gap: 10px;
+	padding-top: 10px;
+}
+
+.form {
+	width: 25em;
+	padding: 15px;
+	background-color: var(--color-app);
+	display: flex;
+	flex-direction: column;	
+	justify-content: center;
+	align-items: center;
+	gap: 1em;
+}
+
+.form input:focus {
+	outline: none;
+	border: 2px solid #0085FF;
+}
+
+.button-submit{
+  display: block;
+	background: var(--background-color-app);
+	font-weight: 600;
+	font-family: 'Open Sans', sans-serif;
+	border: none;
+	cursor: pointer;
+	width: fit-content;
+	padding: 10px 20px;
+	border-radius: 5px;
+	color: var(--color-app);
+	font-size: 1em;
+	transition: .3s ease all;
+}
+
+.button-submit:hover {
+  background: var(--background-color-hover-app);
+}
+
+.successfully {
+	text-align: center;
+	font-size: 14px;
+	padding-top: 10px;
+	color: #02a802;
+  background-color: aliceblue;
+}
+
+.label-input {
+	padding: 0 5px;
+}
+
+.label {
+	font-size: 1em
+}
