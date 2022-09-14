@@ -7,7 +7,7 @@ import { dataOfMultiplicative } from '../services/axios';
 
 import '../stylesheets/pages/Multiplicative.css';
 
-const titleHeaders = ['n', '1', '2', '3', '4'];
+const titleHeaders = ['n', 'Xn', 'a * Xn', 'Xn+1', 'Un = Xn+1/m'];
 
 export const Multiplicative = () => {
   const [rows, setRows] = useState([]);
@@ -35,19 +35,18 @@ export const Multiplicative = () => {
 const FormMultiplicative = ({ setPayload }) => {
   const [isSent, setIsSent] = useState(false);
   
-  const validator = values => {};
-
   return (
     <Formik
       initialValues={{ seed: '', multiplicative: '', module: '' }}
       
       onSubmit={values => {
+        console.log(values);
         setPayload(values);
         setIsSent(true);
         setTimeout(() => setIsSent(false), 2000);
       }}
 
-      validate={values => validator(values)}
+      validate={values => validatorMultiplicative(values)}
     >
     {({errors}) => 
       <Form className='form'>
@@ -62,3 +61,16 @@ const FormMultiplicative = ({ setPayload }) => {
     </Formik>
   )
 }
+
+export const validatorMultiplicative = values => {
+  let errors = {};
+
+  if (!values.seed) { errors.seed = 'Ingrese la semilla'; }
+  if (!values.multiplicative) { errors.multiplicative = 'Ingrese la ctte multiplicativa'; }
+  if (!values.module) { errors.module = 'Ingrese la modulo'; }
+
+  if (parseInt(values.seed) <= 0) { errors.seed = 'Semilla debe ser mayor a 0'; }
+  if (parseInt(values.multiplicative) <= 0) { errors.multiplicative = 'Ctte. multiplicativa debe ser mayor a 0'; }
+  if (parseInt(values.module) <= 0) { errors.module = 'Modulo debe ser mayor a 0'; }
+  return errors;
+}; 

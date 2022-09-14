@@ -5,7 +5,7 @@ export const Table = ({ rows, titleHeaders }) => {
     <table className='table-container'>
       <TableHeader titleHeaders={titleHeaders} />
       <tbody>
-      { rows.map((row) => <Row row={row}/>) }
+      { rows.map(row => <Row key={row.numberRow} row={row} />) }
       </tbody>
     </table>
   )
@@ -27,6 +27,6 @@ const Row = ({ row = {} }) => {
     values.push(value)
   }
   return (
-    <tr>{ values.map((value, index) => <td key={index}>{value}</td>) }</tr>
+    <tr>{ values.map((value, index) => <td key={index}>{row[value]}</td>) }</tr>
   )
 };

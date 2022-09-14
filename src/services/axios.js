@@ -21,7 +21,7 @@ export const dataOfMultiplicative = async (seed, multiplicative, module) => {
 
 export const dataOfMultiplicativeBinary = async (seed, multiplicative, module) => {
   if (seed !== 0 && multiplicative !== 0 && module !== 0) {
-    const response = await domain.get(`api/multiplicative?seed=${seed}&multiplicative=${multiplicative}&module=${module}`);
+    const response = await domain.get(`api/multiplicative/binary?seed=${seed}&multiplicative=${multiplicative}&module=${module}`);
     return response.data;
   }
 

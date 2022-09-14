@@ -4,10 +4,11 @@ import { LabelInputField } from '../components/LabelInputField';
 import { SectionMessages } from '../components/SectionMessages';
 import { Table } from '../components/Table';
 import { dataOfMultiplicativeBinary } from '../services/axios';
+import { validatorMultiplicative } from './Multiplicative';
 
 import '../stylesheets/pages/MultiplicativeBinary.css';
 
-const titleHeaders = ['n', 'Jose Maria'];
+const titleHeaders = ['n', 'Xn'];
 
 export const MultiplicativeBinary = () => {
   const [rows, setRows] = useState([]);
@@ -35,8 +36,6 @@ export const MultiplicativeBinary = () => {
 const FormMultiplicativeBinary = ({ setPayload }) => {
   const [isSent, setIsSent] = useState(false);
 
-  const validator = values => {};
-  
   return (
     <Formik
       initialValues={{ seed: '', multiplicative: '', module: '' }}
@@ -47,7 +46,7 @@ const FormMultiplicativeBinary = ({ setPayload }) => {
         setTimeout(() => setIsSent(false), 2000);
       }}
 
-      validate={values => validator(values)}
+      validate={values => validatorMultiplicative(values)}
     >
     {({errors}) => 
       <Form className='form'>

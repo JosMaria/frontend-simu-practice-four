@@ -21,6 +21,10 @@
   user-select: none;
 }
 
+.table-container td {
+  padding: 0.7em 0;
+}
+
 .table-container tbody tr {
   border-bottom: 1px solid #e6e1e1;
 }
