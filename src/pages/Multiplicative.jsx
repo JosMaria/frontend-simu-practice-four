@@ -40,10 +40,9 @@ const FormMultiplicative = ({ setPayload }) => {
       initialValues={{ seed: '', multiplicative: '', module: '' }}
       
       onSubmit={values => {
-        console.log(values);
         setPayload(values);
         setIsSent(true);
-        setTimeout(() => setIsSent(false), 2000);
+        setTimeout(() => setIsSent(false), 3000);
       }}
 
       validate={values => validatorMultiplicative(values)}

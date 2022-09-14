@@ -9,9 +9,7 @@ export const SectionMessages = ({ messages = []}) => {
         messages.length === 0 ?
         <h5 className='nothing-messages'>NO HAY MENSAJES</h5> : 
         <ul className='messages'>
-        {
-          messages.map((message, index) => <li key={index}>{message}</li>)
-        }
+        { messages.map((message, index) => <li key={index}>{message}</li>) }
         </ul>
       }
       </div>

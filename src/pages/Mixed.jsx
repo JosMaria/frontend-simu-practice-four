@@ -42,7 +42,7 @@ const FormMixed = ({ setPayload }) => {
       onSubmit={values => {
         setPayload(values);
         setIsSent(true);
-        /*setTimeout(() => setIsSent(false), 2000);*/
+        setTimeout(() => setIsSent(false), 3000);
       }}
 
       validate={values => validator(values)}

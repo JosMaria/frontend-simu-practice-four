@@ -42,14 +42,6 @@
   background: var(--background-color-hover-app);
 }
 
-.successfully {
-	text-align: center;
-	font-size: 14px;
-	padding-top: 10px;
-	color: #02a802;
-  background-color: aliceblue;
-}
-
 .label-input {
 	padding: 0 5px;
 }
