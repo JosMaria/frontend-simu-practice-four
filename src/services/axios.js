@@ -15,7 +15,6 @@ export const dataOfMultiplicative = async (seed, multiplicative, module) => {
     const response = await domain.get(`api/multiplicative?seed=${seed}&multiplicative=${multiplicative}&module=${module}`);
     return response.data;
   }
-
   return { response: [], messages: [] };
 };
 

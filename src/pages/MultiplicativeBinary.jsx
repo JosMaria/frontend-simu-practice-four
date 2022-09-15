@@ -35,12 +35,16 @@ export const MultiplicativeBinary = () => {
 
 const FormMultiplicativeBinary = ({ setPayload }) => {
   const [isSent, setIsSent] = useState(false);
+  const [defaultCheckedNormal, setDefaultCheckedNormal] = useState(true);
 
   return (
     <Formik
       initialValues={{ seed: '', multiplicative: '', module: '' }}
       
       onSubmit={values => {
+        if (!defaultCheckedNormal) {
+          values.module = Math.pow(2, parseInt(values.module)).toString();
+        }
         setPayload(values);
         setIsSent(true);
         setTimeout(() => setIsSent(false), 3000);
@@ -53,6 +57,18 @@ const FormMultiplicativeBinary = ({ setPayload }) => {
         <div>
           <LabelInputField textLabel='Semilla' messageError={errors.seed} name='seed' />
           <LabelInputField textLabel='Ctte. Multiplicativa' messageError={errors.multiplicative} name='multiplicative' />
+          
+          <div className='radio-button-section-container'>
+            <div>
+              <input type='radio' name='select-module' value='m' defaultChecked={defaultCheckedNormal} onChange={() => setDefaultCheckedNormal(!defaultCheckedNormal)} />
+              <label className='label-radio-button'>Normal (m)</label>
+            </div>
+            <div>
+              <input type='radio' name='select-module' value='d' onChange={() => setDefaultCheckedNormal(!defaultCheckedNormal)} />
+              <label className='label-radio-button'>Calculado 2^d </label>
+            </div>           
+          </div>
+
           <LabelInputField textLabel='Modulo' messageError={errors.module} name='module' />
         </div>
         <button type='submit' className='button-submit'>Comenzar</button>
