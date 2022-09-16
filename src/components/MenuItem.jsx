@@ -3,7 +3,7 @@ import { FiChevronRight } from 'react-icons/fi';
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 
-export const MenuItem = ({ height, children }) => {
+export const MenuItem = ({ title, height, children }) => {
   const [itemMenuClicked, setItemMenuClicked] = useState(false);
   const [itemMenuHeight, setItemMenuHeight] = useState('0');
 
@@ -14,7 +14,7 @@ export const MenuItem = ({ height, children }) => {
   
   return (
     <li className='list__item list__item--click' onClick={menuItemClicked}>
-      <ItemAncestor titleName='NO CONGRUENCIALES' clickedAncestor={itemMenuClicked} />
+      <ItemAncestor titleName={title} clickedAncestor={itemMenuClicked} />
       <ItemChildrenList heightList={itemMenuHeight} children={children} />
     </li>
   )

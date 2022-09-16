@@ -1,0 +1,22 @@
+.app-container {
+  display: flex;
+}
+
+.successfully {
+	font-weight: bolder;
+	text-align: center;
+	font-size: 1.1em;
+	padding: 0.3em 1em;
+	color: #0bda0b;
+  background-color: #f3f8f1;
+}
+
+.radio-button-section-container {
+	display: flex;
+	justify-content: space-around;
+	padding: 1em 0 0.5em 0;
+}
+
+.label-radio-button {
+	padding-left: 0.3em;
+}

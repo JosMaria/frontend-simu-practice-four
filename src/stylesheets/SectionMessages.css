@@ -1,0 +1,24 @@
+.section-messages-container {
+  width: 60%;
+  padding: 0 0 40px 0;
+}
+
+.title-section-messages {
+  background-color: var(--background-color-app);
+  color: var(--color-app);
+  text-align: center;
+  padding: 10px;
+}
+
+.section-messages {
+  padding: 10px;
+  background-color: var(--color-app);
+}
+
+.nothing-messages {
+  text-align: center;
+}
+
+.messages {
+  padding-left: 20px;
+}
